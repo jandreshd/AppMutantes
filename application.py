@@ -1,6 +1,6 @@
 from flask import Flask
 from apiMutants.mutants import *
-from conexionDB.dbMutants import consultarEstadisticasDia
+#from conexionDB.dbMutants import consultarEstadisticasDia
 
 application = Flask(__name__)
 # add a rule for the index page.
@@ -18,7 +18,7 @@ def mutant():
     dna = request_data['dna']
     if (esAdnValido(dna) == True):
         if (esMutante(dna) == True):
-            guardarSecuenciaAdn(dna)
+            #guardarSecuenciaAdn(dna)
             esUnMutante = True
         if esUnMutante == True:
             return "Es un Mutante"
@@ -27,9 +27,9 @@ def mutant():
     else:
         return {"codigoRespuesta": 999, "mensajeRepuesta": "El valor enviado no es una secuencia de AND Valida"}
 
-@application.route('/stats', methods=['GET'])
-def consultar():
-    return consultarEstadisticasDia()
+#@application.route('/stats', methods=['GET'])
+#def consultar():
+#    return consultarEstadisticasDia()
 
 if __name__ == "__main__":
  # Setting debug to True enables debug output. This line should be
