@@ -19,8 +19,8 @@ def mutant():
     dna = request_data['dna']
     if (esAdnValido(dna) == True):
         if (esMutante(dna) == True):
-            guardarSecuenciaAdn(dna)
             esUnMutante = True
+            guardarSecuenciaAdn(dna)
         if esUnMutante == True:
             return "Es un Mutante"
         else:
