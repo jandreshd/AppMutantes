@@ -20,7 +20,7 @@ def mutant():
     if (esAdnValido(dna) == True):
         if (esMutante(dna) == True):
             esUnMutante = True
-            guardarSecuenciaAdn(dna)
+            guardarSecuenciaAdn(dna, esUnMutante)
         if esUnMutante == True:
             return "Es un Mutante"
         else:
