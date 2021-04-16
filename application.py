@@ -11,13 +11,14 @@ def hello_world():
 def index():
     return "Hola"
 
-@app.route('/mutant', methods=['POST'])
+@application.route('/mutant', methods=['POST'])
 def mutant():
     esUnMutante = False
     request_data = request.get_json()
     dna = request_data['dna']
     if (esAdnValido(dna) == True):
         if (esMutante(dna) == True):
+            guardarSecuenciaAdn(dna)
             esUnMutante = True
         if esUnMutante == True:
             return "Es un Mutante"
@@ -26,7 +27,7 @@ def mutant():
     else:
         return {"codigoRespuesta": 999, "mensajeRepuesta": "El valor enviado no es una secuencia de AND Valida"}
 
-@app.route('/stats', methods=['GET'])
+@application.route('/stats', methods=['GET'])
 def consultar():
     return consultarEstadisticasDia()
 
